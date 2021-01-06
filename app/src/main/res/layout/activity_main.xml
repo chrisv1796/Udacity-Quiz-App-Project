@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/TextColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#84a1ab"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="18dp"
+            android:fontFamily="sans-serif-condensed-light"
+            android:text="League Quiz"
+            android:textSize="58sp" />
+
+        <EditText
+            android:textColor="@color/white"
+            android:id="@+id/nameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/name"
+            android:textAlignment="center"
+            android:textColorHint="#FFFFFF" />
+
+        <EditText
+            android:id="@+id/favChampField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/what_is_your_favorite_champ"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <EditText
+            android:id="@+id/highestRankQuestion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:hint="@string/what_is_the_highest_rank_in_league"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="44dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/when_was_league_created"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:text="2008"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/twoThousandNineRadioButton"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="2009"
+                android:textSize="24sp" />
+
+            <RadioButton
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:text="2010"
+                android:textSize="24sp" />
+
+
+        </RadioGroup>
+
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="16dp"
+            android:text="@string/who_was_the_first_champion"
+            android:textAlignment="center"
+            android:textSize="32sp" />
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="18dp"
+            android:orientation="horizontal">
+
+            <RadioButton
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:text="Ashe"
+                android:textSize="24sp" />
+
+            <RadioButton
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="1"
+                android:text="Udyr"
+                android:textSize="24sp" />
+
+            <RadioButton
+                android:id="@+id/singedRadioButton"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="16dp"
+                android:layout_weight="1"
+                android:text="Singed"
+                android:textSize="24sp" />
+        </RadioGroup>
+        <TextView
+            style="@style/TextColor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="34dp"
+            android:layout_marginEnd="16dp"
+            android:text="Select ALL summoner spells."
+            android:textAlignment="center"
+            android:textSize="32sp"/>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <CheckBox
+                android:id="@+id/healCheckBox"
+                style="@style/TextColor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_marginStart="16dp"
+                android:text="Heal"
+                android:textSize="24sp"/>
+            <CheckBox
+                android:id="@+id/igniteCheckBox"
+                style="@style/TextColor"
+                android:layout_centerInParent="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:text="Ignite"
+                android:textSize="24sp"/>
+
+            <CheckBox
+                android:id="@+id/teleportCheckBox"
+                style="@style/TextColor"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Teleport"
+                android:textSize="24sp"/>
+
+        </RelativeLayout>
+
+
+        <Button
+            style="@style/TextColor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:background="@color/black"
+            android:onClick="submitButton"
+            android:text="@string/submit" />
+    </LinearLayout>
+</ScrollView>
+
+
+
+
+
+

@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">League Quiz</string>
+    <string name="league_quiz">League Quiz!</string>
+    <string name="name">name</string>
+    <string name="what_is_your_favorite_role">What is your favorite role?</string>
+    <string name="what_is_your_favorite_champ">What is your favorite champ?</string>
+    <string name="when_was_league_created">When was league created?</string>
+    <string name="who_was_the_first_champion">Who was the first champion?</string>
+    <string name="submit">Submit</string>
+    <string name="what_is_the_highest_rank_in_league">What is the highest rank in League?</string>
+</resources>
