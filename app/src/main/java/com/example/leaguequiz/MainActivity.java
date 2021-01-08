@@ -110,13 +110,6 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         }
-        if (name.isEmpty()) {
-            if (champ.isEmpty()) {
-                if (favRole.isEmpty()) {
-                    theyAreFilled = false;
-                }
-            }
-        }
         return theyAreFilled;
     }
 
