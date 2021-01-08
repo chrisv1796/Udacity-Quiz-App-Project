@@ -25,47 +25,35 @@ public class MainActivity extends AppCompatActivity {
         Boolean allEditFieldsAreFilled = allEditTextsAreFilled();
 
         if (allEditFieldsAreFilled) {
-            String resultsString = quizResults();
-            String correctAnsers = answerChecker();
-
-            Context toastContext = getApplicationContext();
-            CharSequence toastText = resultsString + "\nAnd you got " + correctAnsers + " answer(s) correct!";
-            int toastDuration = Toast.LENGTH_LONG;
-
-            Toast toast = Toast.makeText(toastContext, toastText, toastDuration);
+            String customGreeting = greeting();
+            String correctAnswers = howManyCorrectAnswers();
+            CharSequence toastText = customGreeting + getString(R.string.and_you_got) + correctAnswers + getString(R.string.answers_correct);
+            Toast toast = Toast.makeText(getApplicationContext(), toastText, Toast.LENGTH_LONG);
             toast.show();
         }
         if (allEditFieldsAreFilled == false) {
-            Toast failedToast = Toast.makeText(getApplicationContext(), "Please Fill Out All Fields", Toast.LENGTH_LONG);
+            Toast failedToast = Toast.makeText(getApplicationContext(), getString(R.string.please_fill_out_ALL_fields), Toast.LENGTH_LONG);
             failedToast.show();
-
         }
-
     }
 
-    private String quizResults() {
+    private String greeting() {
+        EditText nameField = (EditText) findViewById(R.id.name_edit_text);
+        EditText favChampField = (EditText) findViewById(R.id.fav_champ_edit_text);
 
-        EditText nameField = (EditText) findViewById(R.id.nameField);
         String name = nameField.getText().toString();
-
-        EditText favChampField = (EditText) findViewById(R.id.favChampField);
         String favChamp = favChampField.getText().toString();
-
-        EditText highestRank = (EditText) findViewById(R.id.highestRankQuestion);
-        String favRole = highestRank.getText().toString();
-
-        String resultsString = "Hey, " + name + "my have champion is also " + favChamp;
-
-        return resultsString;
+        String customGreeting = getString(R.string.hey) + name + getString(R.string.greeting_fav_champ) + favChamp;
+        return customGreeting;
     }
 
-    private String answerChecker() {
+    private String howManyCorrectAnswers() {
 
         int correctAnswerCounter = 0;
         String correctAnswers = "";
 
-        RadioButton questionThree = (RadioButton) findViewById(R.id.twoThousandNineRadioButton);
-        RadioButton questionFour = (RadioButton) findViewById(R.id.singedRadioButton);
+        RadioButton questionThreeRadioButton = (RadioButton) findViewById(R.id.twoThousandNineRadioButton);
+        RadioButton questionFourRadioButton = (RadioButton) findViewById(R.id.singedRadioButton);
 
         Boolean questionOneCorrect = highestRankQuestionIsCorrect();
         Boolean questionFourCorrect = allCheckBoxesSelected();
@@ -78,10 +66,10 @@ public class MainActivity extends AppCompatActivity {
             correctAnswerCounter += 1;
         }
 
-        if (questionThree.isChecked()) {
+        if (questionThreeRadioButton.isChecked()) {
             correctAnswerCounter += 1;
         }
-        if (questionFour.isChecked()) {
+        if (questionFourRadioButton.isChecked()) {
             correctAnswerCounter += 1;
         }
         if (correctAnswerCounter == 4) {
@@ -99,16 +87,15 @@ public class MainActivity extends AppCompatActivity {
         if (correctAnswerCounter == 0) {
             correctAnswers = "none";
         }
-
         return correctAnswers;
     }
 
     private Boolean allEditTextsAreFilled() {
         Boolean theyAreFilled = false;
 
-        EditText nameField = (EditText) findViewById(R.id.nameField);
-        EditText favChampField = (EditText) findViewById(R.id.favChampField);
-        EditText highestRank = (EditText) findViewById(R.id.highestRankQuestion);
+        EditText nameField = (EditText) findViewById(R.id.name_edit_text);
+        EditText favChampField = (EditText) findViewById(R.id.fav_champ_edit_text);
+        EditText highestRank = (EditText) findViewById(R.id.highest_rank_question_edit_text);
 
         String name = nameField.getText().toString();
         String champ = favChampField.getText().toString();
@@ -118,7 +105,7 @@ public class MainActivity extends AppCompatActivity {
             if (champ.isEmpty() == false) {
                 if (favRole.isEmpty() == false) {
                     theyAreFilled = true;
-                }else {
+                } else {
                     theyAreFilled = false;
                 }
             }
@@ -134,29 +121,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private Boolean highestRankQuestionIsCorrect() {
-        EditText highestRank = (EditText) findViewById(R.id.highestRankQuestion);
-        boolean answer = highestRank.getText().toString().trim().toUpperCase().equals("CHALLENGER");
+        EditText highestRank = (EditText) findViewById(R.id.highest_rank_question_edit_text);
+        boolean answer = highestRank.getText().toString().trim().equalsIgnoreCase("challenger");
         if (answer) {
-            System.out.println("YOU GOT IT RIGHT");
             return true;
-        }else {
+        } else {
             return false;
         }
     }
 
     private Boolean allCheckBoxesSelected() {
-        CheckBox healCheckBox = (CheckBox)findViewById(R.id.healCheckBox);
-        CheckBox igniteCheckBox = (CheckBox)findViewById(R.id.igniteCheckBox);
-        CheckBox teleportCheckBox = (CheckBox)findViewById(R.id.teleportCheckBox);
+        CheckBox healCheckBox = (CheckBox) findViewById(R.id.healCheckBox);
+        CheckBox igniteCheckBox = (CheckBox) findViewById(R.id.igniteCheckBox);
+        CheckBox teleportCheckBox = (CheckBox) findViewById(R.id.teleportCheckBox);
 
-        if (healCheckBox.isChecked()){
-            if (igniteCheckBox.isChecked()){
-                if (teleportCheckBox.isChecked()){
-                    return true;
-                }else return false;
-            }
+        if (healCheckBox.isChecked() && igniteCheckBox.isChecked() && teleportCheckBox.isChecked()) {
+            return true;
+        } else {
+            return false;
         }
-    return false;
     }
-
 }
